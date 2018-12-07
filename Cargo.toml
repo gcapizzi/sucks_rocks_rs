@@ -1,0 +1,6 @@
+[package]
+name = "sucks_rocks_rs"
+version = "0.1.0"
+authors = ["Giuseppe Capizzi <gcapizzi@pivotal.io>"]
+
+[dependencies]
