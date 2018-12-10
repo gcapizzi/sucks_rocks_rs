@@ -1,11 +1,10 @@
 mod score;
 mod ui;
+mod app;
 
 fn main() {
-    let ui = ui::TerminalUI::new();
     let scorer = score::DummyScorer::new();
+    let ui = ui::TerminalUI::new();
 
-    let query = ui.read_query();
-    let score = scorer.calculate(&query);
-    ui.show_score(score)
+    app::App::new(scorer, ui).run()
 }
