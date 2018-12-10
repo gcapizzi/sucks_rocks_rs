@@ -23,11 +23,15 @@ fn main() {
 }
 
 fn read_string(prompt: &str) -> String {
-    print!("{}", prompt);
-    let _ = io::stdout().flush();
+    print_string(prompt);
 
     let mut buf = String::new();
     io::stdin().read_line(&mut buf).expect("Failed to read query");
 
     return String::from(buf.trim())
+}
+
+fn print_string(string: &str) {
+    print!("{}", string);
+    let _ = io::stdout().flush();
 }
