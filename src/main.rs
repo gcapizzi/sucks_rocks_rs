@@ -14,7 +14,7 @@ impl SucksRocks {
 }
 
 fn main() {
-    let query = read_string("Enter a query: ");
+    let query = prompt_and_read("Enter a query: ");
 
     let sucks_rocks = SucksRocks::new();
     let score = sucks_rocks.score(&query);
@@ -22,16 +22,18 @@ fn main() {
     println!("The score for '{}' is {}!", query, score);
 }
 
-fn read_string(prompt: &str) -> String {
+fn prompt_and_read(prompt: &str) -> String {
     print_string(prompt);
-
-    let mut buf = String::new();
-    io::stdin().read_line(&mut buf).expect("Failed to read query");
-
-    return String::from(buf.trim())
+    return read_string()
 }
 
 fn print_string(string: &str) {
     print!("{}", string);
     let _ = io::stdout().flush();
+}
+
+fn read_string() -> String {
+    let mut buf = String::new();
+    io::stdin().read_line(&mut buf).expect("Failed to read string");
+    return String::from(buf.trim())
 }
