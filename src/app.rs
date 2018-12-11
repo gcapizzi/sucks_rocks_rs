@@ -14,7 +14,7 @@ pub struct App<S, U> {
 
 impl<S: Scorer, U: UI> App<S, U> {
     pub fn new(scorer: S, ui: U) -> App<S, U> {
-        App{scorer: scorer, ui: ui}
+        App { scorer, ui }
     }
 
     pub fn run(&self) {
